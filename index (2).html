@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Breach</title>
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ff00;
+        font-family: "Courier New", monospace;
+        overflow: hidden;
+    }
+
+    #terminal {
+        padding: 20px;
+        font-size: 16px;
+        white-space: pre-line;
+    }
+
+    .blink {
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50%, 100% { opacity: 1; }
+        25%, 75% { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div id="terminal"></div>
+
+<script>
+const lines = [
+    "Initializing system breach...",
+    "Bypassing firewall...",
+    "Accessing secure data...",
+    "Decrypting passwords...",
+    "Uploading files to remote server...",
+    "WARNING: Unauthorized access detected",
+    "Tracking IP address...",
+    "Location found: [REDACTED]",
+    "Injecting malware...",
+    "System override complete.",
+    "",
+    "YOU HAVE BEEN HACKED",
+];
+
+let i = 0;
+const speed = 80;
+const terminal = document.getElementById("terminal");
+
+function typeLine() {
+    if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, speed + Math.random() * 200);
+    } else {
+        terminal.innerHTML += "\n> <span class='blink'>_</span>";
+    }
+}
+
+typeLine();
+</script>
+
+</body>
+</html>
